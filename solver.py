@@ -16,13 +16,9 @@ def solve(G):
         T: networkx.Graph
     """
 
+    M = nx.minimum_spanning_tree(G)
+    
     def min_routing_cost_tree(r):
-        """Finds the minimum routing cost tree of G rooted at v
-
-        Args:
-            r: Root
-
-        """
  
         T = nx.DiGraph()
         T.add_nodes_from(G)
@@ -34,14 +30,16 @@ def solve(G):
         return T
         
     def weighted_bfs_tree(r):
-        """Finds the minimum routing cost tree of G rooted at v
-
-        Args:
-            r: Root
-
-        """
  
         T = nx.bfs_tree(G, r)
+        for (u, v) in T.edges():
+            T[u][v]['weight'] = G[u][v]['weight']
+        
+        return T
+        
+    def weighted_mst_tree(r):
+ 
+        T = nx.bfs_tree(M, r)
         for (u, v) in T.edges():
             T[u][v]['weight'] = G[u][v]['weight']
         
@@ -77,7 +75,8 @@ def solve(G):
         return T.to_undirected()
     
     return min([pruned_tree(min_routing_cost_tree(v)) for v in G] + 
-        [pruned_tree(weighted_bfs_tree(v)) for v in G], key=average_pairwise_distance_fast)
+        [pruned_tree(weighted_bfs_tree(v)) for v in G] + 
+        [pruned_tree(weighted_mst_tree(v)) for v in G], key=average_pairwise_distance_fast)
 
 # Here's an example of how to run your solver.
 
