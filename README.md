@@ -1,3 +1,15 @@
+FOR EMPLOYERS:
+
+In this project, our task was to find solutions to the NP-hard telecommunications problem, with vertices representing cities that we need to communicate efficiently. From the spec: 
+
+Formally, let G = (V,E) be a positive weighted, connected, undirected graph. We would like to find a subgraph T of
+G such that:
+1. Every vertex v ∈ V is either in T or adjacent to a vertex in T.
+2. T is a tree.
+3. The average pairwise distance between all vertices in T is minimized.
+
+------------
+
 # CS 170 Project Spring 2020
 
 Take a look at the project spec before you get started!
