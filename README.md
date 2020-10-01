@@ -6,7 +6,8 @@ Formally, let G = (V,E) be a positive weighted, connected, undirected graph. We 
 G such that:
 1. Every vertex v ∈ V is either in T or adjacent to a vertex in T.
 2. T is a tree.
-3. The average pairwise distance between all vertices in T is minimized.
+3. The average pairwise distance between all vertices in T is minimized. 
+*In particular, we were graded based on how well we generally minimized this quantity over a large number of distinct small, medium, and large graphs relative to other students' submissions. Although teams were allowed, I was one of the top 20 teams as a solo student.
 
 ------------
 
